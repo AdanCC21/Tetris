@@ -10,7 +10,7 @@ class Grid:
         self.grid = [[0 for j in range(self.num_cols)] for i in range(self.num_rows)]
         self.colors = Colors.get_pieces_colors();
 
-    # Method to draw the grid
+    # Method to draw the grid. In the terminal.
     def draw_grid(self):
         for row in range(self.num_rows):
             for column in range(self.num_cols):

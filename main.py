@@ -3,6 +3,8 @@
 # LIBRARIES
 import pygame, sys
 from grid import Grid
+from pieces import *
+
 # Pygame initialization and screen configuration
 pygame.init()
 
@@ -15,20 +17,13 @@ BLACK = (0, 0, 0)
 screen = pygame.display.set_mode((300, 600))  # (width, height)
 pygame.display.set_caption("TETRIS")  # program title.
 
-# Objects
+# Objects ----------------------------------------------------------------
 clock = pygame.time.Clock()  # Clock object to control the game's frame rate.
 
 game_grid = Grid()  # Create a grid object.
+Lblock = LPiece()  # Create an L piece object.
 
-# example of the grid with colors.
-game_grid.grid[0][0] = 1
-game_grid.grid[3][5] = 2
-game_grid.grid[17][8] = 3
-
-game_grid.draw_grid()  # Print the grid. 20 rows and 10 columns.
-game_grid.draw_color_pieces(screen)  # Draw the grid with colors.
-
-# Game loop
+# Game loop ----------------------------------------------------------------
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -38,5 +33,8 @@ while True:
     # Draw the screen
     screen.fill(BLACK)
     game_grid.draw_color_pieces(screen)
+    # Draw the piece
+    Lblock.draw_piece(screen)
+
     pygame.display.update()
     clock.tick(60)  # 60 frames per second.
