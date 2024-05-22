@@ -1,4 +1,5 @@
 import pygame
+from colors import Colors
 
 class Grid:
     # Constructor
@@ -7,7 +8,7 @@ class Grid:
         self.num_cols = 10
         self.cell_size = 30
         self.grid = [[0 for j in range(self.num_cols)] for i in range(self.num_rows)]
-        self.colors = self.get_color()
+        self.colors = Colors.get_pieces_colors();
 
     # Method to draw the grid
     def draw_grid(self):
@@ -16,18 +17,7 @@ class Grid:
                 print(self.grid[row][column], end = " ")
             print()
     
-    # Method to add the color of the pieces.
-    def get_color(self):
-        DARK_GRAY = (26, 31, 40)
-        RED = (232, 18, 18)
-        GREEN = (47,230,23)
-        BLUE = (13, 64, 216)
-        YELLOW = (237, 234, 4)
-        PURPLE = (166, 0, 247)
-        PINK = (255, 105, 180)
-        ORANGE = (255, 165, 0)
-        # return the color of the piece.
-        return [DARK_GRAY, RED, GREEN, BLUE, YELLOW, PURPLE, PINK, ORANGE]
+    
     
     # Method to draw the grid with colors.
     def draw_color_pieces(self, screen):
