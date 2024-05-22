@@ -19,6 +19,7 @@ class LPiece(Piece):
             2: [Positions(1,0), Positions(1,1), Positions(1,2), Positions(2,0)],
             3: [Positions(0,0), Positions(0, 1), Positions(1, 1), Positions(2, 1)]
         }
+        self.move(0,3)
 
 # J piece shape that contains the position of each tile of the piece for each rotation state on the cell.
 class JPiece(Piece):
@@ -30,6 +31,7 @@ class JPiece(Piece):
             2: [Positions(1,0), Positions(1,1), Positions(1,2), Positions(2,2)],
             3: [Positions(0,1), Positions(1,1), Positions(2,0), Positions(2,1)]
         }
+        self.move(0,3)
 
 # Square piece shape that contains the position of each tile of the piece for each rotation state on the cell.
 class SquarePiece(Piece):
@@ -41,6 +43,7 @@ class SquarePiece(Piece):
             2: [Positions(0,0), Positions(0,1), Positions(1,0), Positions(1,1)],
             3: [Positions(0,0), Positions(0,1), Positions(1,0), Positions(1,1)]
         }
+        self.move(0,4)
 
 # S piece shape that contains the position of each tile of the piece for each rotation state on the cell.
 class SPiece(Piece):
@@ -52,6 +55,7 @@ class SPiece(Piece):
             2: [Positions(1,1), Positions(1,2), Positions(2,0), Positions(2,1)],
             3: [Positions(0,0), Positions(1,0), Positions(1,1), Positions(2,1)]
         }
+        self.move(0,3)
 
 # Z piece shape that contains the position of each tile of the piece for each rotation state on the cell.
 class ZPiece(Piece):
@@ -63,6 +67,7 @@ class ZPiece(Piece):
             2: [Positions(1,0), Positions(1,1), Positions(2,1), Positions(2,2)],
             3: [Positions(0,1), Positions(1,0), Positions(1,1), Positions(2,0)]
         }
+        self.move(0,3)
 
 # T piece shape that contains the position of each tile of the piece for each rotation state on the cell.
 class TPiece(Piece):
@@ -74,6 +79,7 @@ class TPiece(Piece):
             2: [Positions(1,0), Positions(1,1), Positions(1,2), Positions(2,1)],
             3: [Positions(0,1), Positions(1,0), Positions(1,1), Positions(2,1)]
         }
+        self.move(0,3)
 
 # I piece shape that contains the position of each tile of the piece for each rotation state on the cell.
 class IPiece(Piece):
@@ -85,3 +91,4 @@ class IPiece(Piece):
             2: [Positions(2,0), Positions(2,1), Positions(2,2), Positions(2,3)],
             3: [Positions(0,1), Positions(1,1), Positions(2,1), Positions(3,1)]
         }
+        self.move(-1,3)

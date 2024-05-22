@@ -30,3 +30,8 @@ class Grid:
                 cell_piece = pygame.Rect(column * self.cell_size +1, row * self.cell_size +1, # (x, y, width, height) add margin to the cell.
                 self.cell_size -1, self.cell_size -1)
                 pygame.draw.rect(screen, self.colors[cell_value], cell_piece)
+    
+    def is_inside(self,row,column):
+        if (row >=0 and row < self.num_rows) and (column >=0 and column <self.num_cols):
+            return True
+        return False

@@ -2,8 +2,8 @@
 # ----------------------------------------------------------------
 # LIBRARIES
 import pygame, sys
-from grid import Grid
-from pieces import *
+from game import Game
+
 
 # Pygame initialization and screen configuration
 pygame.init()
@@ -20,14 +20,7 @@ pygame.display.set_caption("TETRIS")  # program title.
 # Objects ----------------------------------------------------------------
 clock = pygame.time.Clock()  # Clock object to control the game's frame rate.
 
-game_grid = Grid()  # Create a grid object.
-Lblock = LPiece()  # Create an L piece object.
-ZBlock = ZPiece()  # Create a Z piece object.
-SBlock = SPiece()  # Create an S piece object.
-JBlock = JPiece()  # Create a J piece object.
-SquareBlock = SquarePiece()  # Create a Square piece object.
-IBlock = IPiece()  # Create an I piece object.
-TBlock = TPiece()  # Create a T piece object.
+game=Game()
 
 # Game loop ----------------------------------------------------------------
 while True:
@@ -35,19 +28,22 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+
+        #move of piece
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                game.move_left()
+            if event.key == pygame.K_RIGHT:
+                game.move_right()
+            if event.key == pygame.K_DOWN:
+                game.move_down()
+            if event.key == pygame.K_UP:
+                game.rotate()
     # Update the screen
     # Draw the screen
+    
     screen.fill(BLACK)
-    game_grid.draw_color_pieces(screen)
-    # Draw the piece
-    # Lblock.draw_piece(screen) # red
-    # ZBlock.draw_piece(screen) # purple
-    # SBlock.draw_piece(screen) # yellow
-    # JBlock.draw_piece(screen) # green
-    # SquareBlock.draw_piece(screen) # blue
-    # IBlock.draw_piece(screen) # orange
-    # TBlock.draw_piece(screen) # pink
-
+    game.draw(screen)
 
     pygame.display.update()
     clock.tick(60)  # 60 frames per second.
