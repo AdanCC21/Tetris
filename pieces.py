@@ -21,19 +21,67 @@ class LPiece(Piece):
         }
 
 # J piece shape that contains the position of each tile of the piece for each rotation state on the cell.
-# class JPiece(Piece):
+class JPiece(Piece):
+    def __init__(self):
+        super().__init__(id = 2)
+        self.cells = {
+            0: [Positions(0,0), Positions(1,0), Positions(1,1), Positions(1,2)],
+            1: [Positions(0,1), Positions(0,2), Positions(1,1), Positions(2,1)],
+            2: [Positions(1,0), Positions(1,1), Positions(1,2), Positions(2,2)],
+            3: [Positions(0,1), Positions(1,1), Positions(2,0), Positions(2,1)]
+        }
 
 # Square piece shape that contains the position of each tile of the piece for each rotation state on the cell.
-# class SquarePiece(Piece):
+class SquarePiece(Piece):
+    def __init__(self):
+        super().__init__(id = 3)
+        self.cells = {
+            0: [Positions(0,0), Positions(0,1), Positions(1,0), Positions(1,1)],
+            1: [Positions(0,0), Positions(0,1), Positions(1,0), Positions(1,1)],
+            2: [Positions(0,0), Positions(0,1), Positions(1,0), Positions(1,1)],
+            3: [Positions(0,0), Positions(0,1), Positions(1,0), Positions(1,1)]
+        }
 
 # S piece shape that contains the position of each tile of the piece for each rotation state on the cell.
-# class SPiece(Piece):
+class SPiece(Piece):
+    def __init__(self):
+        super().__init__(id = 4)
+        self.cells = {
+            0: [Positions(0,1), Positions(0,2), Positions(1,0), Positions(1,1)],
+            1: [Positions(0,1), Positions(1,1), Positions(1,2), Positions(2,2)],
+            2: [Positions(1,1), Positions(1,2), Positions(2,0), Positions(2,1)],
+            3: [Positions(0,0), Positions(1,0), Positions(1,1), Positions(2,1)]
+        }
 
 # Z piece shape that contains the position of each tile of the piece for each rotation state on the cell.
-# class ZPiece(Piece):
+class ZPiece(Piece):
+    def __init__(self):
+        super().__init__(id = 5)
+        self.cells = {
+            0: [Positions(0,0), Positions(0,1), Positions(1,1), Positions(1,2)],
+            1: [Positions(0,2), Positions(1,1), Positions(1,2), Positions(2,1)],
+            2: [Positions(1,0), Positions(1,1), Positions(2,1), Positions(2,2)],
+            3: [Positions(0,1), Positions(1,0), Positions(1,1), Positions(2,0)]
+        }
 
 # T piece shape that contains the position of each tile of the piece for each rotation state on the cell.
-# class TPiece(Piece):
+class TPiece(Piece):
+    def __init__(self):
+        super().__init__(id = 6)
+        self.cells = {
+            0: [Positions(0,1), Positions(1,0), Positions(1,1), Positions(1,2)],
+            1: [Positions(0,1), Positions(1,1), Positions(1,2), Positions(2,1)],
+            2: [Positions(1,0), Positions(1,1), Positions(1,2), Positions(2,1)],
+            3: [Positions(0,1), Positions(1,0), Positions(1,1), Positions(2,1)]
+        }
 
 # I piece shape that contains the position of each tile of the piece for each rotation state on the cell.
-# class IPiece(Piece):
+class IPiece(Piece):
+    def __init__(self):
+        super().__init__(id = 7)
+        self.cells = {
+            0: [Positions(1,0), Positions(1,1), Positions(1,2), Positions(1,3)],
+            1: [Positions(0,2), Positions(1,2), Positions(2,2), Positions(3,2)],
+            2: [Positions(2,0), Positions(2,1), Positions(2,2), Positions(2,3)],
+            3: [Positions(0,1), Positions(1,1), Positions(2,1), Positions(3,1)]
+        }
