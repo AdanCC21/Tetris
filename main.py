@@ -14,14 +14,12 @@ pygame.init()
 # Font
 title_font = pygame.font.Font(None,40)
 
-score_surface = title_font.render("SCORE", True, Colors.WHITE)
-next_surface = title_font.render("Next", True, Colors.WHITE)
-game_over_surface = title_font.render("GAME OVER", True, Colors.WHITE)
+score_surface = title_font.render("SCORE", True, Colors.YELLOW)
+next_surface = title_font.render("NEXT", True, Colors.YELLOW)
+game_over_surface = title_font.render("GAME OVER", True, Colors.YELLOW)
 
 score_rec = pygame.Rect(320,55,170,60)
 next_rec =  pygame.Rect(320,215,170,180)
-
-
 
 # Screen configuration.
 screen = pygame.display.set_mode((500, 620))  # (width, height)
@@ -32,7 +30,7 @@ clock = pygame.time.Clock()  # Clock object to control the game's frame rate.
 
 game=Game()
 GAME_UPDATE = pygame.USEREVENT # special event
-pygame.time.set_timer(GAME_UPDATE,10) # timer
+pygame.time.set_timer(GAME_UPDATE,220) # timer
 
 # Game loop ----------------------------------------------------------------
 while True:
@@ -68,10 +66,10 @@ while True:
     if game.game_over == True:
         screen.blit(game_over_surface,(320,450,50,50))
 
-    pygame.draw.rect(screen, Colors.LIGHT_BLUE, score_rec,0,10)
+    pygame.draw.rect(screen, Colors.DARK_GRAY, score_rec,0,10)
     screen.blit(score_value, score_value.get_rect(centerx = score_rec.centerx,
                                                   centery = score_rec.centery,))
-    pygame.draw.rect(screen, Colors.LIGHT_BLUE, next_rec,0,10)
+    pygame.draw.rect(screen, Colors.DARK_GRAY, next_rec,0,10)
     game.draw(screen)
 
 
