@@ -7,6 +7,9 @@ class Colors:
     PURPLE = (166, 0, 247)
     PINK = (255, 105, 180)
     ORANGE = (255, 165, 0)
+    WHITE = (255, 255, 255)
+    DARK_BLUE = (44, 44, 127)
+    LIGHT_BLUE = (59,85,162)
 
     """ 
     classmethod is a decorator that is an alternative constructor.

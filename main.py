@@ -3,6 +3,7 @@
 # LIBRARIES
 import pygame, sys
 from game import Game
+from colors import Colors
 
 
 # Pygame initialization and screen configuration
@@ -10,17 +11,28 @@ pygame.init()
 
 # Configurations
 # ----------------------------------------------------------------
-# Colors
-BLACK = (0, 0, 0)
+# Font
+title_font = pygame.font.Font(None,40)
+
+score_surface = title_font.render("SCORE", True, Colors.WHITE)
+next_surface = title_font.render("Next", True, Colors.WHITE)
+game_over_surface = title_font.render("GAME OVER", True, Colors.WHITE)
+
+score_rec = pygame.Rect(320,55,170,60)
+next_rec =  pygame.Rect(320,215,170,180)
+
+
 
 # Screen configuration.
-screen = pygame.display.set_mode((300, 600))  # (width, height)
+screen = pygame.display.set_mode((500, 620))  # (width, height)
 pygame.display.set_caption("TETRIS")  # program title.
 
 # Objects ----------------------------------------------------------------
 clock = pygame.time.Clock()  # Clock object to control the game's frame rate.
 
 game=Game()
+GAME_UPDATE = pygame.USEREVENT # special event
+pygame.time.set_timer(GAME_UPDATE,10) # timer
 
 # Game loop ----------------------------------------------------------------
 while True:
@@ -31,19 +43,37 @@ while True:
 
         #move of piece
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT:
+            if game.game_over == True:
+                game.game_over = False
+                game.reset()
+            if event.key == pygame.K_LEFT and game.game_over == False:
                 game.move_left()
-            if event.key == pygame.K_RIGHT:
+            if event.key == pygame.K_RIGHT and game.game_over == False:
                 game.move_right()
-            if event.key == pygame.K_DOWN:
+            if event.key == pygame.K_DOWN and game.game_over == False:
                 game.move_down()
-            if event.key == pygame.K_UP:
+                game.update_score(0,1)
+            if event.key == pygame.K_UP and game.game_over == False:
                 game.rotate()
+        if event.type == GAME_UPDATE and game.game_over == False:
+            game.move_down()
+
     # Update the screen
     # Draw the screen
-    
-    screen.fill(BLACK)
+    screen.fill(Colors.DARK_BLUE)
+    screen.blit(score_surface,(365,20,50,50))
+    screen.blit(next_surface,(375,180,50,50))
+    score_value = title_font.render(str(game.score), True,Colors.WHITE)
+
+    if game.game_over == True:
+        screen.blit(game_over_surface,(320,450,50,50))
+
+    pygame.draw.rect(screen, Colors.LIGHT_BLUE, score_rec,0,10)
+    screen.blit(score_value, score_value.get_rect(centerx = score_rec.centerx,
+                                                  centery = score_rec.centery,))
+    pygame.draw.rect(screen, Colors.LIGHT_BLUE, next_rec,0,10)
     game.draw(screen)
+
 
     pygame.display.update()
     clock.tick(60)  # 60 frames per second.

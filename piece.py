@@ -12,12 +12,12 @@ class Piece:
         self.colors = Colors.get_pieces_colors()  # get the colors of the pieces.
 
     # method to draw the piece.
-    def draw_piece(self, screen):
+    def draw_piece(self, screen, offset_x, offset_y):
         # each cell is a tile. 
         tiles = self.get_cell_position() # retrieves the list of positions for the current rotation state.
         # draw the piece.
         for tile in tiles:
-            tile_rect = pygame.Rect(tile.column * self.cells_size + 1, tile.row * self.cells_size + 1,
+            tile_rect = pygame.Rect(offset_x + tile.column * self.cells_size, offset_y + tile.row * self.cells_size,
                         self.cells_size -1, self.cells_size -1)
             pygame.draw.rect(screen, self.colors[self.id], tile_rect)
     
